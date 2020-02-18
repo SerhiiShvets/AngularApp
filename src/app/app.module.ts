@@ -6,6 +6,7 @@ import { FilterComponent } from './filter/filter.component';
 import { ArticleComponent } from './article/article.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { SourcesSelectorComponent } from './sources-selector/sources-selector.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,12 @@ import { SourcesSelectorComponent } from './sources-selector/sources-selector.co
     FilterComponent,
     ArticleComponent,
     NewsFeedComponent,
-    SourcesSelectorComponent
+    SourcesSelectorComponent,
+    MatSelectModule
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
