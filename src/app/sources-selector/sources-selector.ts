@@ -6,16 +6,11 @@ interface Source {
 }
 
 @Component({
-  selector: 'sources-selector',
-  templateUrl: './sources-selector.component.html',
-  styleUrls: ['./sources-selector.component.css']
+  selector: 'sources-selector-component',
+  templateUrl: './sources-selector.html',
+  styleUrls: ['./sources-selector.css']
 })
 export class SourcesSelectorComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   sources: Source[] = [
     {id: '0-r', name: 'Reuters'},
@@ -23,4 +18,9 @@ export class SourcesSelectorComponent implements OnInit {
     {id: '2-ap', name: 'Associated Press'}
   ];
 
+  selected = '';
+  constructor() { }
+
+  ngOnInit() {
+  }
 }

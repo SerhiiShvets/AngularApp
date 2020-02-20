@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SourcesSelectorComponent } from './sources-selector/sources-selector';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myApp';
-  sourceName = 'Source Name';
+  sourcesSelector: SourcesSelectorComponent;
+  sourceName = 'Source name';
+
 }
