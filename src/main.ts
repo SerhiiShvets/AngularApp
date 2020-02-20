@@ -16,6 +16,7 @@ import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import {SourcesSelectorModule} from './app/sources-selector/sources-selector.module';
 import {SourcesSelectorComponent} from './app/sources-selector/sources-selector';
 import {AppComponent} from './app/app.component';
+import { ArticleComponent } from './app/article/article.component';
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import {AppComponent} from './app/app.component';
     ReactiveFormsModule,
   ],
   entryComponents: [SourcesSelectorComponent],
-  declarations: [AppComponent, SourcesSelectorComponent],
+  declarations: [AppComponent, SourcesSelectorComponent, ArticleComponent],
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
