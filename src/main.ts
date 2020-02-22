@@ -18,6 +18,7 @@ import {SourcesSelectorComponent} from './app/sources-selector/sources-selector'
 import {AppComponent} from './app/app.component';
 import { ArticleComponent } from './app/article/article.component';
 import { NewsFeedComponent } from './app/news-feed/news-feed.component';
+import { CreateArticleComponent } from './app/create-article/create-article.component';
 
 @NgModule({
   imports: [
@@ -29,12 +30,12 @@ import { NewsFeedComponent } from './app/news-feed/news-feed.component';
     MatNativeDateModule,
     ReactiveFormsModule,
   ],
-  entryComponents:
-                [SourcesSelectorComponent],
+  entryComponents:[SourcesSelectorComponent],
   declarations: [AppComponent,
                 SourcesSelectorComponent,
                 ArticleComponent,
-                NewsFeedComponent],
+                NewsFeedComponent,
+                CreateArticleComponent],
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
