@@ -11,7 +11,6 @@ import { CreateArticleComponent} from './create-article/create-article.component
 })
 export class AppComponent {
   title = 'All';
-  @Input() public inputTitle: string;
   sourcesSelector: SourcesSelectorComponent;
   articleComponent: ArticleComponent;
   newsFeedComponent: NewsFeedComponent;

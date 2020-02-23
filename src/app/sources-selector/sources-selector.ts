@@ -20,8 +20,9 @@ export class SourcesSelectorComponent implements OnInit {
   ];
 
   selected = 'All';
-  // @Input() selected: string;
+  
   @Output() sourceNameChange = new EventEmitter<string>();
+
   onSourceNameChange(){
     this.sourceNameChange.emit(this.selected);
 }

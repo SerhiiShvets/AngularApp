@@ -2,20 +2,13 @@
   <div class="header">
     <h3>{{ title }}</h3>
   </div>
-  <!-- <div class="toolbar">
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname </th>
-      <th>Age </th>
-    </tr>
-  </div> -->
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <div>
         <sources-selector-component (sourceNameChange)="recieveSourceName($event)">
         </sources-selector-component>
-      <!-- <div class="sources-selector">
-      </div> -->
+        <!-- <button mat-raised-button color="primary" (click)="addArticle()">Save</button> -->
+        <a routerLink="/add" routerLinkActive="active">Add</a>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
