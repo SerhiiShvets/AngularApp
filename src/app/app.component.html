@@ -1,6 +1,6 @@
 <div class="container">
   <div class="header">
-    <h3>{{ sourceName }}</h3>
+    <h3>{{ title }}</h3>
   </div>
   <!-- <div class="toolbar">
     <tr>
@@ -12,10 +12,10 @@
   <mat-toolbar color="primary">
     <mat-toolbar-row>
       <div>
-        <sources-selector-component>
+        <sources-selector-component (sourceNameChange)="recieveSourceName($event)">
         </sources-selector-component>
-        <!-- <div class="sources-selector">
-        </div> -->
+      <!-- <div class="sources-selector">
+      </div> -->
       </div>
     </mat-toolbar-row>
   </mat-toolbar>

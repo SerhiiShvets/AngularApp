@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
 interface Source {
   id: string;
@@ -13,12 +13,19 @@ interface Source {
 export class SourcesSelectorComponent implements OnInit {
 
   sources: Source[] = [
-    {id: '0-r', name: 'Reuters'},
-    {id: '1-afp', name: 'Agence France-Presse'},
-    {id: '2-ap', name: 'Associated Press'}
+    {id: '0-a', name: 'All'},
+    {id: '1-r', name: 'Reuters'},
+    {id: '2-afp', name: 'Agence France-Presse'},
+    {id: '3-ap', name: 'Associated Press'}
   ];
 
-  selected = '';
+  selected = 'All';
+  // @Input() selected: string;
+  @Output() sourceNameChange = new EventEmitter<string>();
+  onSourceNameChange(){
+    this.sourceNameChange.emit(this.selected);
+}
+
   constructor() { }
 
   ngOnInit() {
