@@ -22,7 +22,8 @@ const appRoutes: Routes =[
     ArticleComponent,
     NewsFeedComponent,
     SourcesSelectorComponent,
-    CreateArticleComponent
+    CreateArticleComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CreateArticleComponent } from '../create-article/create-article.component';
 import { Article } from '../create-article/create-article.component';
 
 @Component({
@@ -9,6 +10,17 @@ import { Article } from '../create-article/create-article.component';
 export class ArticleComponent implements OnInit {
 
   @Input() articles: Article[];
+
+  id: number;
+  heading: string;
+  date: string;
+  author: string;
+  description: string;
+  content: string;
+  sourceUrl: string;
+  // article: Article;
+
+  article: Article = {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'};
   // articles: Article[] = [
   //   {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
   //   {id: 1, heading: 'Reuters', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
