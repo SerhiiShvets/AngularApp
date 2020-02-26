@@ -1,7 +1,7 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { ArticleComponent } from '../article/article.component';
 
-interface Article {
+export interface Article {
   id: number;
   heading: string;
   date: string;
@@ -17,6 +17,8 @@ interface Article {
   styleUrls: ['./create-article.component.css']
 })
 export class CreateArticleComponent implements OnInit {
+
+// @Input() articles: Article[];
 
   newId: number;
   newHeading: string;
