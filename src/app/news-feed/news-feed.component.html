@@ -29,6 +29,14 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table> -->
 
+  <div>
+    <ul>
+      <li *ngFor="let article of articles">
+        {{ article.heading }}
+      </li>
+    </ul>
+  </div>
+
   <table mat-table [dataSource]="dataSource">
 
     <!-- <ng-container matColumnDef="news-feed">
