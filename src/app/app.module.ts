@@ -9,6 +9,7 @@ import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { SourcesSelectorComponent } from './sources-selector/sources-selector';
 import {MatSelectModule} from '@angular/material/select';
 import { CreateArticleComponent } from './create-article/create-article.component';
+import { ArticlesDataService } from './articles-data-service/articles-data.service';
 
 const appRoutes: Routes =[
   { path: '', component: AppComponent},
@@ -29,7 +30,7 @@ const appRoutes: Routes =[
     BrowserModule,
     MatSelectModule
   ],
-  providers: [],
+  providers: [ArticlesDataService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

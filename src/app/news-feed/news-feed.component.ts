@@ -2,29 +2,32 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { ArticleComponent } from '../article/article.component';
-import { Article } from '../create-article/create-article.component';
+import { Article, ArticlesDataService } from '../articles-data-service/articles-data.service';
 import { CreateArticleComponent } from '../create-article/create-article.component';
 
 
 @Component({
   selector: 'app-news-feed',
   templateUrl: './news-feed.component.html',
-  styleUrls: ['./news-feed.component.css']
+  styleUrls: ['./news-feed.component.css'],
+  providers: [ArticlesDataService]
 })
 export class NewsFeedComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
-  @Input() articles: Article[];
+  // @Input() articles: Article[];
   @Input() article: Article;
 
   displayedColumns: string[] = ['heading'];
+
+  articles: Article[] = [];
   // dataSource = new MatTableDataSource<Article>(articles);
 
-  constructor() { }
+  constructor(private ArticlesDataService: ArticlesDataService) { }
 
   ngOnInit() {
-    // this.dataSource.paginator = this.paginator;
+    this.articles = this.ArticlesDataService.getData();
   }
   
 }
@@ -51,7 +54,7 @@ export interface PeriodicElement {
 //   {id: 1, heading: 'Associated Press', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
 //   {id: 2, heading: 'Agence France-Presse', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
 // ];
-const article: Article = {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'};
+// const article: Article = {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'};
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
