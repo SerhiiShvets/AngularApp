@@ -17,7 +17,7 @@ export class NewsFeedComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   
   // @Input() articles: Article[];
-  @Input() article: Article;
+  // @Input() article: Article;
 
   displayedColumns: string[] = ['heading'];
 

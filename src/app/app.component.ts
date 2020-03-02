@@ -3,7 +3,8 @@ import { SourcesSelectorComponent } from './sources-selector/sources-selector';
 import { ArticleComponent } from './article/article.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { CreateArticleComponent} from './create-article/create-article.component';
-import { ArticlesDataService } from './articles-data-service/articles-data.service';
+import { FilterComponent } from './filter/filter.component';
+ 
 
 export interface Article {
   id: number;
@@ -18,8 +19,7 @@ export interface Article {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers: [ArticlesDataService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'All';
@@ -27,6 +27,7 @@ export class AppComponent {
   articleComponent: ArticleComponent;
   newsFeedComponent: NewsFeedComponent;
   createArticleComponent: CreateArticleComponent;
+  filterComponent: FilterComponent;
 
   recieveSourceName($event){
     this.title = $event;

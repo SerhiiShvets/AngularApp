@@ -32,7 +32,7 @@ export class CreateArticleComponent implements OnInit {
   constructor(private ArticlesDataService: ArticlesDataService) { }
 
   ngOnInit() {
-    // this.newArticle = new Article();
+    this.articles = this.ArticlesDataService.getData();
   }
 
 }

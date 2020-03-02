@@ -1,4 +1,3 @@
-<p>filter works!</p>
 <div class="filter">
-    <input type="text" placeholder="Searh" [(ngModel)]="searchTerm">
+    <input type="text" placeholder="Searh" [ngModel]="searchTerm" (ngModelChange)="onSearchChange()">
 </div>

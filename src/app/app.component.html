@@ -1,19 +1,25 @@
 <div class="container">
-  <div class="header">
-    <h3>{{ title }}</h3>
-  </div>
   <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <div class="header">
+        <h3>{{ title }}</h3>
+      </div>
+    </mat-toolbar-row>
     <mat-toolbar-row>
       <div>
         <sources-selector-component (sourceNameChange)="recieveSourceName($event)">
         </sources-selector-component>
         <!-- <button mat-raised-button color="primary" (click)="addArticle()">Save</button> -->
         <a routerLink="/add" routerLinkActive="active">Add</a>
+
+        <!-- <div class="form-search"> -->
+          <!-- <input type="text" placeholder="Search" (searchChange)="searchTerm"> -->
+          <!-- <i class="material-icons">search</i> -->
+        <!-- </div> -->
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  
   <div>
     <app-article>
     </app-article>

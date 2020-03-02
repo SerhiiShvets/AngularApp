@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 export interface Article {
   id: number;
   heading: string;
-  date: string;
+  date: Date;
   author: string;
   shortDescription: string;
   content: string;
@@ -46,9 +46,9 @@ export class ArticlesDataService {
   }
 
   public articles: Article[] = [
-    {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
-    {id: 1, heading: 'Associated Press', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
-    {id: 2, heading: 'Agence France-Presse', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
+    {id: 0, heading: 'Reuters', date: new Date(2020,20,2), author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
+    {id: 1, heading: 'Associated Press', date: new Date(2020,20,2), author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
+    {id: 2, heading: 'Agence France-Presse', date: new Date(2020,20,2), author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
   ];
 }
 

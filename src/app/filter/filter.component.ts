@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-filter',
@@ -7,7 +8,13 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
-  searchTerm:string;
+  searchTerm = '';
+
+  @Output() searchChange = new EventEmitter<string>();
+
+  onSearchChange(){
+    this.searchChange.emit(this.searchTerm);
+  }
 
   constructor() { }
 

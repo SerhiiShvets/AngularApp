@@ -7,9 +7,13 @@ import { FilterComponent } from './filter/filter.component';
 import { ArticleComponent } from './article/article.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { SourcesSelectorComponent } from './sources-selector/sources-selector';
-import {MatSelectModule} from '@angular/material/select';
 import { CreateArticleComponent } from './create-article/create-article.component';
+
 import { ArticlesDataService } from './articles-data-service/articles-data.service';
+
+
+import { MatSelectModule } from '@angular/material/select';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const appRoutes: Routes =[
   { path: '', component: AppComponent},
@@ -28,7 +32,8 @@ const appRoutes: Routes =[
   ],
   imports: [
     BrowserModule,
-    MatSelectModule
+    MatSelectModule,
+    Ng2SearchPipeModule
   ],
   providers: [ArticlesDataService],
   bootstrap: [AppComponent],

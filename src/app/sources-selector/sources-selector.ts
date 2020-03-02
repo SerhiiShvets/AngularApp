@@ -25,7 +25,7 @@ export class SourcesSelectorComponent implements OnInit {
 
   onSourceNameChange(){
     this.sourceNameChange.emit(this.selected);
-}
+  }
 
   constructor() { }
 
