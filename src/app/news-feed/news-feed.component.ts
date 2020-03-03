@@ -4,20 +4,25 @@ import {MatTableDataSource} from '@angular/material/table';
 import { ArticleComponent } from '../article/article.component';
 import { Article, ArticlesDataService } from '../articles-data-service/articles-data.service';
 import { CreateArticleComponent } from '../create-article/create-article.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @Component({
   selector: 'app-news-feed',
   templateUrl: './news-feed.component.html',
   styleUrls: ['./news-feed.component.css'],
-  providers: [ArticlesDataService]
+  providers: [ArticlesDataService],
+
 })
 export class NewsFeedComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  
-  // @Input() articles: Article[];
-  // @Input() article: Article;
+
+  term: string;
+
+  recieveFilterTerm($event){
+    this.term = $event;
+  }
 
   displayedColumns: string[] = ['heading'];
 

@@ -1,3 +1,8 @@
-<div class="filter">
+<!-- <div class="filter">
     <input type="text" placeholder="Searh" [ngModel]="searchTerm" (ngModelChange)="onSearchChange()">
+</div> -->
+
+<div class="form-search">
+    <input type="text" placeholder="Search" [(ngModel)]="term" (ngModelChange)="onSearchChange()">
+    <!-- <i class="material-icons">search</i> -->
 </div>

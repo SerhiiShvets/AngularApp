@@ -19,6 +19,7 @@ import {AppComponent} from './app/app.component';
 import { ArticleComponent } from './app/article/article.component';
 import { NewsFeedComponent } from './app/news-feed/news-feed.component';
 import { CreateArticleComponent } from './app/create-article/create-article.component';
+import { FilterComponent } from './app/filter/filter.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { CreateArticleComponent } from './app/create-article/create-article.comp
                 SourcesSelectorComponent,
                 ArticleComponent,
                 NewsFeedComponent,
-                CreateArticleComponent],
+                CreateArticleComponent,
+                FilterComponent],
   bootstrap: [AppComponent],
   providers: [
     { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
