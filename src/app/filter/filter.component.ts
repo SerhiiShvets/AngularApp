@@ -12,7 +12,7 @@ export class FilterComponent implements OnInit {
 
   @Output() searchChange = new EventEmitter<string>();
 
-  onSearchChange(){
+  onSearchChange() {
     this.searchChange.emit(this.term);
   }
 

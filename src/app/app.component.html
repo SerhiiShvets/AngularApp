@@ -6,17 +6,14 @@
       </div>
     </mat-toolbar-row>
     <mat-toolbar-row>
-      <div>
         <sources-selector-component (sourceNameChange)="recieveSourceName($event)">
         </sources-selector-component>
         <!-- <button mat-raised-button color="primary" (click)="addArticle()">Save</button> -->
         <a routerLink="/add" routerLinkActive="active">Add</a>
-        <!-- <app-filter (searchChange)="recieveFilterTerm($event)">
-        </app-filter> -->
-      </div>
+        <app-filter>
+        </app-filter>
     </mat-toolbar-row>
   </mat-toolbar>
-
   <div>
     <app-article>
     </app-article>

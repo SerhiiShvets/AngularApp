@@ -18,7 +18,7 @@ export class NewsFeedComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  term: string;
+  term = '';
 
   recieveFilterTerm($event){
     this.term = $event;
