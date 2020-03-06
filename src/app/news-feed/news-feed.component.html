@@ -1,6 +1,7 @@
 <div class="mat-elevation-z8">
   <div>
     <table>
+      <input type="text" [(ngModel)]="term">  
       <tr *ngFor="let article of articles">
           <td>
             {{ article.heading }}

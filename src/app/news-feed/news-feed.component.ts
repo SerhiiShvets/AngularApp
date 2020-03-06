@@ -5,7 +5,7 @@ import { ArticleComponent } from '../article/article.component';
 import { Article, ArticlesDataService } from '../articles-data-service/articles-data.service';
 import { CreateArticleComponent } from '../create-article/create-article.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { FilterPipe } from '../filter-pipe/filter.pipe';
 
 @Component({
   selector: 'app-news-feed',

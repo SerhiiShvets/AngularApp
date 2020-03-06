@@ -11,6 +11,7 @@ import { CreateArticleComponent } from './create-article/create-article.componen
 
 import { ArticlesDataService } from './articles-data-service/articles-data.service';
 
+import { FilterPipe } from './filter-pipe/filter.pipe';
 
 import { MatSelectModule } from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -30,7 +31,8 @@ const appRoutes: Routes =[
     NewsFeedComponent,
     SourcesSelectorComponent,
     CreateArticleComponent,
-    ArticleComponent
+    ArticleComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
