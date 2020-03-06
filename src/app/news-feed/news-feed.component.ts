@@ -44,23 +44,6 @@ export interface PeriodicElement {
   symbol: string;
 }
 
-// export interface Article {
-//   id: number;
-//   heading: string;
-//   date: string;
-//   author: string;
-//   shortDescription: string;
-//   content: string;
-//   sourceUrl: string;
-// }
-
-// const articles: Article[] = [
-//   {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
-//   {id: 1, heading: 'Associated Press', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
-//   {id: 2, heading: 'Agence France-Presse', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
-// ];
-// const article: Article = {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'};
-
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
   {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},

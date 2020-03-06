@@ -4,7 +4,6 @@ import { ArticleComponent } from './article/article.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { CreateArticleComponent} from './create-article/create-article.component';
 import { FilterComponent } from './filter/filter.component';
- 
 
 export interface Article {
   id: number;
@@ -33,9 +32,3 @@ export class AppComponent {
     this.title = $event;
   }
 }
-
-const articles: Article[] = [
-  {id: 0, heading: 'Reuters', date: '2/18/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
-  {id: 1, heading: 'Associated Press', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
-  {id: 2, heading: 'Agence France-Presse', date: '2/20/2020', author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
-];

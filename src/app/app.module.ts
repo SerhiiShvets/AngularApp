@@ -14,6 +14,8 @@ import { ArticlesDataService } from './articles-data-service/articles-data.servi
 
 import { MatSelectModule } from '@angular/material/select';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FilterModule } from './filter/filter.module';
+import { NewsFeedModule } from './news-feed/news-feed.module';
 
 const appRoutes: Routes =[
   { path: '', component: AppComponent},
@@ -33,7 +35,9 @@ const appRoutes: Routes =[
   imports: [
     BrowserModule,
     MatSelectModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    FilterModule,
+    NewsFeedModule
   ],
   providers: [ArticlesDataService],
   bootstrap: [AppComponent],
