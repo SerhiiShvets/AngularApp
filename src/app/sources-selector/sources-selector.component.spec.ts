@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SourcesSelectorComponent } from './sources-selector';
+import { SourcesSelectorComponent } from './sources-selector.component';
 
 describe('SourcesSelectorComponent', () => {
   let component: SourcesSelectorComponent;

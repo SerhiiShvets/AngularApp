@@ -1,48 +1,77 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import {Routes, RouterModule} from '@angular/router';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FilterComponent } from './filter/filter.component';
 import { ArticleComponent } from './article/article.component';
-import { NewsFeedComponent } from './news-feed/news-feed.component';
-import { SourcesSelectorComponent } from './sources-selector/sources-selector';
 import { CreateArticleComponent } from './create-article/create-article.component';
-
-import { ArticlesDataService } from './articles-data-service/articles-data.service';
-
-import { FilterPipe } from './filter-pipe/filter.pipe';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { NewsFeedComponent } from './news-feed/news-feed.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatSelectModule } from '@angular/material/select';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FilterModule } from './filter/filter.module';
-import { NewsFeedModule } from './news-feed/news-feed.module';
+import {MatCardModule} from '@angular/material/card';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatInputModule} from '@angular/material/input';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import { MatNativeDateModule } from '@angular/material/core';
+import { ArticlesDataService } from './shared/articles-data.service';
+import { from } from 'rxjs';
+import { SourcesSelectorComponent } from './sources-selector/sources-selector.component';
+import { FilterPipe } from './filter.pipe';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
 
 const appRoutes: Routes =[
   { path: '', component: AppComponent},
   { path: 'add', component: CreateArticleComponent},
 ];
 
+// export const firebaseConfig {
+//   apiKey: "AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw",
+//   authDomain: "my-angular-app-ca09d.firebaseapp.com",
+//   databaseURL: "https://my-angular-app-ca09d.firebaseio.com",
+//   projectId: "my-angular-app-ca09d",
+//   storageBucket: "project-id.appspot.com",
+//   messagingSenderId: "sender-id",
+//   appId: "848590614299",
+//   measurementId: "G-measurement-id",
+
+// };
+
 @NgModule({
   declarations: [
     AppComponent,
-    FilterComponent,
     ArticleComponent,
+    CreateArticleComponent,
+    ToolbarComponent,
     NewsFeedComponent,
     SourcesSelectorComponent,
-    CreateArticleComponent,
-    ArticleComponent,
     FilterPipe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    NoopAnimationsModule,
     MatSelectModule,
-    Ng2SearchPipeModule,
-    FilterModule,
-    NewsFeedModule
+    MatCardModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatNativeDateModule,
+    AngularFireModule,
+    AngularFireDatabaseModule
   ],
+
   providers: [ArticlesDataService],
-  bootstrap: [AppComponent],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

@@ -51,4 +51,3 @@ export class ArticlesDataService {
     {id: 2, heading: 'Agence France-Presse', date: new Date(2020,20,2), author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
   ];
 }
-

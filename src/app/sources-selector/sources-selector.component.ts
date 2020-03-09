@@ -1,14 +1,15 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 
+
 interface Source {
   id: string;
   name: string;
 }
 
 @Component({
-  selector: 'sources-selector-component',
-  templateUrl: './sources-selector.html',
-  styleUrls: ['./sources-selector.css']
+  selector: 'app-sources-selector',
+  templateUrl: './sources-selector.component.html',
+  styleUrls: ['./sources-selector.component.css']
 })
 export class SourcesSelectorComponent implements OnInit {
 

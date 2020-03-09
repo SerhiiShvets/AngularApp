@@ -1,6 +1,6 @@
 <mat-form-field>
     <mat-label>Select source</mat-label>
-    <mat-select [(value)]="selected"[ngModel]="selected" (ngModelChange)="onSourceNameChange()">
+    <mat-select [(value)]="selected" [(ngModel)]="selected" (ngModelChange)="onSourceNameChange()">
         <mat-option *ngFor="let source of sources" [value]="source.name">
         {{ source.name }}
         </mat-option>

@@ -1,36 +1,20 @@
 <div class="mat-elevation-z8">
-  <div>
-    <table>
-      <input type="text" [(ngModel)]="term">  
-      <tr *ngFor="let article of articles">
-          <td>
-            {{ article.heading }}
-          </td>
-          <td>
-            {{ article.date | date }}
-          </td>
-          <td>
-            {{ article.content }}
-          </td>
-      </tr>
-  </table>
-  </div>
-
-  <!-- <table mat-table [dataSource]="dataSource">
-
-    <ng-container matColumnDef="news-feed">
-      <td mat-cell *matCellDef="let article"> {{article.heading}} </td>
-    </ng-container> -->
-
-        <!-- Position Column -->
-        <!-- <ng-container matColumnDef="heading">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
-          <td mat-cell *matCellDef="let article"> {{ article.heading }} </td>
-        </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table> -->
-
-  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-</div>
+    <div>
+      <input type="text" [(ngModel)]="searchTerm"/>  
+    </div>
+    <div *ngFor="let article of articles | filter:searchTerm">{{article.heading}}
+      <!-- <table>
+        <input type="text" [(ngModel)]="term">  
+        <tr *ngFor="let article of articles">
+            <td>
+              {{ article.heading }}
+            </td>
+            <td>
+              {{ article.date | date }}
+            </td>
+            <td>
+              {{ article.content }}
+            </td>
+        </tr>
+    </table> -->
+    </div>

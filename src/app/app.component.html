@@ -1,30 +1,12 @@
-<div class="container">
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <div class="header">
-        <h3>{{ title }}</h3>
-      </div>
-    </mat-toolbar-row>
-    <mat-toolbar-row>
-        <sources-selector-component (sourceNameChange)="recieveSourceName($event)">
-        </sources-selector-component>
-        <!-- <button mat-raised-button color="primary" (click)="addArticle()">Save</button> -->
-        <a routerLink="/add" routerLinkActive="active">Add</a>
-        <app-filter>
-        </app-filter>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <div>
-    <app-article>
-    </app-article>
-  </div>
-  <div>
-    <app-create-article>
-    </app-create-article>
-  </div>
-  <div>
-    <app-news-feed>
-    </app-news-feed>
-  </div>
-  
-</div>
+<app-toolbar [(searchTerm)]="search">
+</app-toolbar>
+<div>Выбранное имя: {{search}}</div>`
+
+<app-article>
+</app-article>
+
+<app-create-article>
+</app-create-article>
+
+<app-news-feed [(searchTerm)]="search">  
+</app-news-feed>

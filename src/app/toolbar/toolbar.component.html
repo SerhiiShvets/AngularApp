@@ -1,0 +1,24 @@
+
+<div class="container">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <div class="header">
+          <h3>{{ title }}</h3>
+        </div>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <app-sources-selector (sourceNameChange)="recieveSourceName($event)">
+        </app-sources-selector>
+        <!-- <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="searchTerm" (ngModelChange)="onSearchCTermChange()">
+          <mat-label>Search</mat-label>
+          <i class="material-icons">search</i>
+      </mat-form-field> -->
+        <input type="text" [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()">
+       
+          <a routerLink="add" routerLinkActive="active">Add</a>
+          <!-- <app-filter (searchChange)="recieveFilterTerm($event)">
+          </app-filter> -->
+      </mat-toolbar-row>
+    </mat-toolbar>
+</div>
