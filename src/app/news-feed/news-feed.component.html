@@ -1,7 +1,4 @@
 <div class="mat-elevation-z8">
-    <div>
-      <input type="text" [(ngModel)]="searchTerm"/>  
-    </div>
     <div *ngFor="let article of articles | filter:searchTerm">{{article.heading}}
       <!-- <table>
         <input type="text" [(ngModel)]="term">  
