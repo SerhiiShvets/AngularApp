@@ -29,7 +29,6 @@ import { FilterSelectorPipe } from './filter-selector.pipe';
 import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes =[
-  { path: '', component: AppComponent},
   { path: 'add', component: CreateArticleComponent},
 ];
 
@@ -70,7 +69,8 @@ const appRoutes: Routes =[
     MatButtonModule,
     MatNativeDateModule,
     AngularFireModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    RouterModule.forRoot(appRoutes)
   ],
 
   providers: [ArticlesDataService],
