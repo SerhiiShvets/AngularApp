@@ -1,5 +1,29 @@
-<app-toolbar [(searchTerm)]="search">
-</app-toolbar>
+<header>
+    <mat-toolbar color="primary">
+
+        <mat-toolbar-row>
+            <h3>{{ title }}</h3>
+        </mat-toolbar-row>
+  
+        <mat-toolbar-row>
+          <app-sources-selector (sourceNameChange)="recieveSourceName($event)">
+          </app-sources-selector>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput [(ngModel)]="searchTerm">
+            <i class="material-icons">search</i>
+            <mat-label>Search</mat-label>
+          </mat-form-field>  
+  
+          <a routerLink="add" routerLinkActive="active">Add</a>
+        </mat-toolbar-row>
+  
+    </mat-toolbar>
+</header>
+
+<!-- <app-toolbar [(searchTerm)]="search" (titleChange)="recieveSourceFilter($event)">
+</app-toolbar> -->
+
 
 <app-article>
 </app-article>
@@ -7,5 +31,36 @@
 <app-create-article>
 </app-create-article>
 
-<app-news-feed [(searchTerm)]="search">  
+<app-news-feed [(searchTerm)]="searchTerm" [(source)]="title">  
 </app-news-feed>
+
+<!-- <header>
+
+</header>
+<header>
+<nav></nav>
+</header>
+<main>
+<section>
+<article>
+    <section>
+
+    </section>
+</article>
+</section>
+<section>
+    
+</section>
+<article>
+    <header>1</header>
+    <footer>2</footer>
+</article>
+
+</main>
+<aside>
+
+</aside>
+<footer>
+    <nav></nav>
+</footer> -->
+<router-outlet></router-outlet>

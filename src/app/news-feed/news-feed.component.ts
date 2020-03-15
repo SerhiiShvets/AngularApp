@@ -19,12 +19,10 @@ export class NewsFeedComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
   @Input() searchTerm: string;
+  @Input() source: string;
 
-  recieveSearchTerm($event){
-    this.searchTerm = $event;
-  }
 
-  displayedColumns: string[] = ['heading'];
+  // displayedColumns: string[] = ['heading'];
 
   articles: Article[] = [];
   // dataSource = new MatTableDataSource<Article>(articles);

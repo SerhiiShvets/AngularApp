@@ -31,23 +31,9 @@ export class ArticlesDataService {
     return this.articles;
 }
 
-  addArticle() {
-    
-    // this.newId = this.articles.length;
-    // this.newArticle = new Article();
-    // this.newArticle.heading = this.newHeading;
-    // this.newArticle.date = this.newDate;
-    // this.newArticle.author = this.newAuthor;
-    // this.newArticle.shortDescription = this.newShortDescription;
-    // this.newArticle.content = this.newContent;
-    // this.newArticle.sourceUrl = this.newSourceUrl;
-    // this.articles.push(this.newArticle);
-    console.log("function called");
-  }
-
   public articles: Article[] = [
-    {id: 0, heading: 'Reuters', date: new Date(2020,20,2), author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
+    {id: 0, heading: 'Reuters', date: new Date(2020,20,2), author: 'Arthur Conan Doyle', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
     {id: 1, heading: 'Associated Press', date: new Date(2020,20,2), author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'},
-    {id: 2, heading: 'Agence France-Presse', date: new Date(2020,20,2), author: 'Jack London', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
+    {id: 2, heading: 'Agence France-Presse', date: new Date(2020,20,2), author: 'Jules Verne', shortDescription: 'Description', content: 'Some content', sourceUrl: 'http://someurl.com'}
   ];
 }

@@ -25,6 +25,8 @@ import { FilterPipe } from './filter.pipe';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { FilterSelectorPipe } from './filter-selector.pipe';
+import { SearchComponent } from './search/search.component';
 
 const appRoutes: Routes =[
   { path: '', component: AppComponent},
@@ -51,7 +53,9 @@ const appRoutes: Routes =[
     ToolbarComponent,
     NewsFeedComponent,
     SourcesSelectorComponent,
-    FilterPipe
+    FilterPipe,
+    FilterSelectorPipe,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

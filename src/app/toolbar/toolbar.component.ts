@@ -14,13 +14,9 @@ export class ToolbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   @Input() searchTerm = '';
   title = 'All';
-  // sourcesSelector: SourcesSelectorComponent;
-  // articleComponent: ArticleComponent;
-  // newsFeedComponent: NewsFeedComponent;
-  // createArticleComponent: CreateArticleComponent;
-  // filterComponent: FilterComponent;
 
   @Output() searchTermChange = new EventEmitter<string>();
 
@@ -30,6 +26,13 @@ export class ToolbarComponent implements OnInit {
 
   recieveSourceName($event){
     this.title = $event;
+    console.log(this.title);
+  }
+
+  @Output() titleChange = new EventEmitter<string>();
+
+  onTitleChange(){
+    this.titleChange.emit(this.title);
   }
 
 }

@@ -1,22 +1,32 @@
 
+  <nav>
+    <a href="/html/">HTML</a> |
+    <a href="/css/">CSS</a> |
+    <a href="/js/">JavaScript</a> |
+    <a href="/jquery/">jQuery</a>
+  </nav>
+
 <div class="container">
     <mat-toolbar color="primary">
+
       <mat-toolbar-row>
         <div class="header">
           <h3>{{ title }}</h3>
         </div>
       </mat-toolbar-row>
+
       <mat-toolbar-row>
-        <app-sources-selector (sourceNameChange)="recieveSourceName($event)">
-        </app-sources-selector>
+        <!-- <app-sources-selector (sourceNameChange)="recieveSourceName($event)">
+        </app-sources-selector> -->
+
         <mat-form-field class="example-full-width">
           <input matInput [(ngModel)]="searchTerm" (ngModelChange)="onSearchTermChange()">
-          <mat-label>Search</mat-label>
           <i class="material-icons">search</i>
-      </mat-form-field>       
-          <a routerLink="add" routerLinkActive="active">Add</a>
-          <!-- <app-filter (searchChange)="recieveFilterTerm($event)">
-          </app-filter> -->
+          <mat-label>Search</mat-label>
+        </mat-form-field>  
+
+        <a routerLink="add" routerLinkActive="active">Add</a>
       </mat-toolbar-row>
+
     </mat-toolbar>
 </div>

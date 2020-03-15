@@ -47,4 +47,18 @@ articleForm: FormGroup;
     });
   }
 
+  addArticle() {
+    
+    // this.newId = this.articles.length;
+    // this.newArticle = new Article();
+    // this.newArticle.heading = this.newHeading;
+    // this.newArticle.date = this.newDate;
+    // this.newArticle.author = this.newAuthor;
+    // this.newArticle.shortDescription = this.newShortDescription;
+    // this.newArticle.content = this.newContent;
+    // this.newArticle.sourceUrl = this.newSourceUrl;
+    // this.articles.push(this.newArticle);
+    console.log("Article saved");
+  }
+
 }
