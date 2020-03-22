@@ -23,8 +23,9 @@ import { from } from 'rxjs';
 import { SourcesSelectorComponent } from './sources-selector/sources-selector.component';
 import { FilterPipe } from './filter.pipe';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from './../environments/environment';
+// import { AngularFireModule } from '@angular/fire';
+// import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FilterSelectorPipe } from './filter-selector.pipe';
 import { SearchComponent } from './search/search.component';
 
@@ -69,8 +70,8 @@ const appRoutes: Routes =[
     MatToolbarModule,
     MatButtonModule,
     MatNativeDateModule,
-    AngularFireModule,
-    AngularFireDatabaseModule
+    // AngularFireModule.initializeApp(environment.firebaseConfig),
+    // AngularFireDatabaseModule
   ],
 
   providers: [ArticlesDataService],

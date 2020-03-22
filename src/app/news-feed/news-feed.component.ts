@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { ArticleComponent } from '../article/article.component';
 import { Article, ArticlesDataService } from '../shared/articles-data.service';
 import { CreateArticleComponent } from '../create-article/create-article.component';
+import { AngularFireDatabase } from 'angularfire2/database';
 // import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
@@ -26,8 +27,14 @@ export class NewsFeedComponent implements OnInit {
 
   articles: Article[] = [];
   // dataSource = new MatTableDataSource<Article>(articles);
+  articlesFireBase: any[];
+  constructor(private ArticlesDataService: ArticlesDataService, db: AngularFireDatabase) { }
 
-  constructor(private ArticlesDataService: ArticlesDataService) { }
+  db.list('/articles')
+    .subscribe(articlesFireBase => {
+    this.articlesFireBase = articlesFireBase;
+    console.log(this.articlesFireBase);
+  });
 
   ngOnInit() {
     this.articles = this.ArticlesDataService.getData();
