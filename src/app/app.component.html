@@ -14,7 +14,9 @@
             <i class="material-icons">search</i>
             <mat-label>Search</mat-label>
           </mat-form-field>  
-  
+          <!-- <nav>
+            <a routerLink="add" routerLinkActive="active">Add</a>
+          </nav> -->
           <a routerLink="add" routerLinkActive="active">Add</a>
         </mat-toolbar-row>
   
@@ -27,9 +29,6 @@
 
 <app-article>
 </app-article>
-
-<app-create-article>
-</app-create-article>
 
 <app-news-feed [(searchTerm)]="searchTerm" [(source)]="title">  
 </app-news-feed>
