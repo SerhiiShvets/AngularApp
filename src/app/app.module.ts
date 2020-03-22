@@ -11,6 +11,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NewsFeedComponent } from './news-feed/news-feed.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -22,6 +23,7 @@ import { ArticlesDataService } from './shared/articles-data.service';
 import { SourcesSelectorComponent } from './sources-selector/sources-selector.component';
 import { FilterPipe } from './filter.pipe';
 
+import { environment } from './../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FilterSelectorPipe } from './filter-selector.pipe';
@@ -31,17 +33,15 @@ const appRoutes: Routes =[
   { path: 'add', component: CreateArticleComponent},
 ];
 
-// export const firebaseConfig {
-//   apiKey: "AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw",
-//   authDomain: "my-angular-app-ca09d.firebaseapp.com",
-//   databaseURL: "https://my-angular-app-ca09d.firebaseio.com",
-//   projectId: "my-angular-app-ca09d",
-//   storageBucket: "project-id.appspot.com",
-//   messagingSenderId: "sender-id",
-//   appId: "848590614299",
-//   measurementId: "G-measurement-id",
-
-// };
+const firebaseConfig = {
+  apiKey: "AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw",
+  authDomain: "my-angular-app-ca09d.firebaseapp.com",
+  databaseURL: "https://my-angular-app-ca09d.firebaseio.com",
+  projectId: "my-angular-app-ca09d",
+  storageBucket: "my-angular-app-ca09d.appspot.com",
+  messagingSenderId: "848590614299",
+  appId: "1:848590614299:web:a36f49655d14633d01edbe"
+}
 
 @NgModule({
   declarations: [
@@ -69,7 +69,10 @@ const appRoutes: Routes =[
     MatNativeDateModule,
     AngularFireModule,
     AngularFireDatabaseModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    ReactiveFormsModule
   ],
 
   providers: [ArticlesDataService],
