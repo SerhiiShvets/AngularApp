@@ -5,16 +5,6 @@ import { Article, ArticlesDataService } from '../shared/articles-data.service';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { map } from 'rxjs/operators';
 
-// export interface Article {
-//   id: number;
-//   heading: string;
-//   date: string;
-//   author: string;
-//   shortDescription: string;
-//   content: string;
-//   sourceUrl: string;
-// }
-
 @Component({
   selector: 'app-create-article',
   templateUrl: './create-article.component.html',

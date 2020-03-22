@@ -23,11 +23,7 @@ export class NewsFeedComponent implements OnInit {
   @Input() searchTerm: string;
   @Input() source: string;
 
-
-  // displayedColumns: string[] = ['heading'];
-
   articles: Article[] = [];
-  // dataSource = new MatTableDataSource<Article>(articles);
   articlesFL: AngularFireList<any>;
   keysArticles = [];
   countArticles: number = 0;
@@ -38,7 +34,7 @@ export class NewsFeedComponent implements OnInit {
   } 
 
   constructor(private ArticlesDataService: ArticlesDataService, private db: AngularFireDatabase) {
-    // this.articlesFL = db.list('/articles');
+
   }
 
 }
