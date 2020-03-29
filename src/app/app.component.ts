@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 // import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
@@ -11,7 +12,9 @@ export class AppComponent {
   search: string;
   sourceFilter: string;
 
-  recieveSourceFilter($event){
+  constructor(private router: Router) {}
+
+  recieveSourceFilter($event) {
     this.sourceFilter = $event;
   }
 
@@ -34,6 +37,10 @@ export class AppComponent {
   onTitleChange(){
     this.titleChange.emit(this.title);
   }
+
+  createArticle() {
+    this.router.navigateByUrl('/add');
+}
 
   // @Output() searchChange = new EventEmitter<string>();
 

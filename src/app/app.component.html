@@ -1,23 +1,25 @@
 <header>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="toolbar">
 
-        <mat-toolbar-row>
-            <h2 class="selected-source">{{ title }}</h2>
+        <mat-toolbar-row class="selected-source">
+            <h2>{{ title }}</h2>
         </mat-toolbar-row>
   
-        <mat-toolbar-row>
-          <app-sources-selector (sourceNameChange)="recieveSourceName($event)">
+        <mat-toolbar-row class="toolbar-items">
+
+          <app-sources-selector class="sources-selector" (sourceNameChange)="recieveSourceName($event)">
           </app-sources-selector>
   
-          <mat-form-field class="example-full-width">
+          <mat-form-field class="search">
             <input matInput [(ngModel)]="searchTerm">
             <i class="material-icons">search</i>
-            <mat-label>Search</mat-label>
-          </mat-form-field>  
-          <!-- <nav>
-            <a routerLink="add" routerLinkActive="active">Add</a>
-          </nav> -->
-          <a routerLink="add" routerLinkActive="active">Add</a>
+            <!-- <mat-label>Search</mat-label> -->
+          </mat-form-field>
+
+          <nav class="add-article">
+            <button mat-raised-button color="primary" (click)="createArticle()" >Add article</button>
+          </nav>
+          <!-- <a routerLink="add" routerLinkActive="active">Add</a> -->
         </mat-toolbar-row>
   
     </mat-toolbar>
@@ -27,11 +29,13 @@
 </app-toolbar> -->
 
 
-<app-article>
-</app-article>
+<!-- <app-article>
+</app-article> -->
 
-<app-news-feed [(searchTerm)]="searchTerm" [(source)]="title">  
-</app-news-feed>
+<main>
+  <app-news-feed [(searchTerm)]="searchTerm" [(source)]="title">  
+  </app-news-feed>
+</main>
 
 <router-outlet></router-outlet>
 

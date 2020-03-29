@@ -1,34 +1,35 @@
 <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width">
-        <mat-label>Enter a heading</mat-label>
-        <input matInput name="heading" formControlName="heading">
-    </mat-form-field>
-    <mat-form-field class="example-full-width">
-        <mat-label>Pick a date</mat-label>
-        <input matInput [matDatepicker]="picker" id="date" formControlName="date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
+    <div>
+        <mat-form-field class="heading">
+            <mat-label>Enter a heading</mat-label>
+            <input matInput name="heading" formControlName="heading">
+        </mat-form-field>
+        <mat-form-field class="date">
+            <mat-label>Pick a date</mat-label>
+            <input matInput [matDatepicker]="picker" id="date" formControlName="date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </div>
     <br>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="short-description">
         <mat-label>Short description</mat-label>
         <input matInput id="shortDescription" formControlName="shortDescription">
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="author">
         <mat-label>Author</mat-label>
         <input matInput id="author" formControlName="author">
     </mat-form-field>
     <br>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="content">
         <mat-label>Content</mat-label>
         <textarea matInput id="content" formControlName="content"></textarea>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
+    <mat-form-field class="url">
         <mat-label>URL</mat-label>
         <input matInput id="sourceUrl" formControlName="sourceUrl">
     </mat-form-field>
     <div class="buttons">
-        <!-- <button mat-raised-button color="primary" (click)="addArticle(heading, date, shortDescription, author, content, sourceUrl)">Save</button> -->
         <button mat-raised-button color="primary">Save</button>
         <button mat-raised-button color="primary">Cancel</button>     
     </div>

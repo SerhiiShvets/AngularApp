@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { CreateArticleComponent } from './create-article/create-article.component';
@@ -29,19 +29,20 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FilterSelectorPipe } from './filter-selector.pipe';
 import { SearchComponent } from './search/search.component';
 
-const appRoutes: Routes =[
+const appRoutes: Routes = [
   { path: 'add', component: CreateArticleComponent},
+  { path: 'articles', component: NewsFeedComponent},
 ];
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw",
-  authDomain: "my-angular-app-ca09d.firebaseapp.com",
-  databaseURL: "https://my-angular-app-ca09d.firebaseio.com",
-  projectId: "my-angular-app-ca09d",
-  storageBucket: "my-angular-app-ca09d.appspot.com",
-  messagingSenderId: "848590614299",
-  appId: "1:848590614299:web:a36f49655d14633d01edbe"
-}
+  apiKey: 'AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw',
+  authDomain: 'my-angular-app-ca09d.firebaseapp.com',
+  databaseURL: 'https://my-angular-app-ca09d.firebaseio.com',
+  projectId: 'my-angular-app-ca09d',
+  storageBucket: 'my-angular-app-ca09d.appspot.com',
+  messagingSenderId: '848590614299',
+  appId: '1:848590614299:web:a36f49655d14633d01edbe'
+};
 
 @NgModule({
   declarations: [

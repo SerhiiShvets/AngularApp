@@ -1,0 +1,22 @@
+form {
+
+}
+
+div {
+    display: flex;
+
+}
+
+.date {
+    max-width: 176px;
+}
+
+mat-form-field {
+    margin-right: 50px;
+}
+
+button {
+    display: flex;
+    margin-right: 20px;
+    justify-content: center;
+}

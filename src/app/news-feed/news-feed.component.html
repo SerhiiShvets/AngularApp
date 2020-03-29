@@ -1,8 +1,11 @@
 <div class="mat-elevation-z8">
-    <!-- <div *ngFor="let article of articles | filter:searchTerm">
-      {{article.heading}} -->
-      <div>
-      <table> 
+    <div *ngFor="let article of articles | filter:searchTerm | filterSelector:source">
+      {{article.heading}}
+
+    </div>
+</div>
+
+      <!-- <table> 
         <tr *ngFor="let article of articles | filter:searchTerm | filterSelector:source">
             <td>
               {{ article.heading }}
@@ -14,5 +17,4 @@
               {{ article.content }}
             </td>
         </tr>
-    </table>
-    </div>
+    </table> -->
