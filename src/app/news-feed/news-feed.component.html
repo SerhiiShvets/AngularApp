@@ -1,8 +1,19 @@
-<div class="mat-elevation-z8">
-    <div *ngFor="let article of articles | filter:searchTerm | filterSelector:source">
-      {{article.heading}}
-
-    </div>
+<div class="news-container">
+  <ul>
+    <li *ngFor="let article of articles | filter:searchTerm | filterSelector:source">
+      <div class="article-data">
+        <div>
+          {{article.heading}}
+        </div>
+        <div>
+          {{ article.content }}
+        </div>
+      </div>
+      <div class="article-date">
+        {{ article.date }}
+      </div>
+    </li>
+  </ul>
 </div>
 
       <!-- <table> 
