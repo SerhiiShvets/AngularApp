@@ -34,7 +34,7 @@ const appRoutes: Routes = [
   { path: 'articles', component: NewsFeedComponent},
 ];
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw',
   authDomain: 'my-angular-app-ca09d.firebaseapp.com',
   databaseURL: 'https://my-angular-app-ca09d.firebaseio.com',
@@ -80,5 +80,3 @@ const firebaseConfig = {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-

@@ -10,22 +10,8 @@
         </div>
       </div>
       <div class="article-date">
-        {{ article.date }}
+        {{ article.date | date:'medium' }} 
       </div>
     </li>
   </ul>
 </div>
-
-      <!-- <table> 
-        <tr *ngFor="let article of articles | filter:searchTerm | filterSelector:source">
-            <td>
-              {{ article.heading }}
-            </td>
-            <td>
-              {{ article.date | date }}
-            </td>
-            <td>
-              {{ article.content }}
-            </td>
-        </tr>
-    </table> -->

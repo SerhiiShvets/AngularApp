@@ -95,7 +95,6 @@ export class CreateArticleComponent implements OnInit {
   }
 
   // addArticle() {
-    
   //   // this.newId = this.articles.length;
   //   // this.newArticle = new Article();
   //   // this.newArticle.heading = this.newHeading;
