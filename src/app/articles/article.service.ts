@@ -31,7 +31,7 @@ export class ArticleService {
     return this.articlesRef;
   }
 
-  deleteAll() {
+  removeAll() {
     this.articlesRef.get().subscribe(
       querySnapshot => {
         querySnapshot.forEach((doc) => {

@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="article-date">
-        {{ article.date | date:'medium' }} 
+        {{ article.date.toDate() | date: 'yyyy dd MMM hh:mm'  }} 
       </div>
     </li>
   </ul>
