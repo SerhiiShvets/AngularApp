@@ -5,21 +5,23 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ArticleComponent } from './article/article.component';
-import { CreateArticleComponent } from './create-article/create-article.component';
+import { ArticleComponent } from './articles/article/article.component';
+import { CreateArticleComponent } from './articles/create-article/create-article.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { NewsFeedComponent } from './news-feed/news-feed.component';
+import { NewsFeedComponent } from './articles/news-feed/news-feed.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
-import {MatCardModule} from '@angular/material/card';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatInputModule} from '@angular/material/input';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ArticlesDataService } from './shared/articles-data.service';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
+import { ArticleService } from '../app/articles/article.service';
 import { SourcesSelectorComponent } from './sources-selector/sources-selector.component';
 import { FilterPipe } from './filter.pipe';
 
@@ -41,8 +43,10 @@ export const firebaseConfig = {
   projectId: 'my-angular-app-ca09d',
   storageBucket: 'my-angular-app-ca09d.appspot.com',
   messagingSenderId: '848590614299',
-  appId: '1:848590614299:web:a36f49655d14633d01edbe'
+  appId: '1:848590614299:web:ae92c46f51be687001edbe'
 };
+
+// storageBucket: 'my-angular-app-ca09d.appspot.com',
 
 @NgModule({
   declarations: [
@@ -71,12 +75,13 @@ export const firebaseConfig = {
     AngularFireModule,
     AngularFireDatabaseModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    AngularFirestoreModule,
     ReactiveFormsModule
   ],
 
-  providers: [ArticlesDataService],
+  providers: [ArticlesDataService, ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
