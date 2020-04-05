@@ -9,8 +9,13 @@
           {{ article.content }}
         </div>
       </div>
-      <div class="article-date">
-        {{ article.date.toDate() | date: 'yyyy dd MMM hh:mm'  }} 
+      <div class="article-info">
+        <div class="article-source">
+          {{ article.sourceName }}
+        </div>
+        <div class="article-date">
+          {{ article.date.toDate() | date: 'yyyy dd MMM hh:mm'  }} 
+        </div>
       </div>
     </li>
   </ul>
