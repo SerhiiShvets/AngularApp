@@ -1,6 +1,32 @@
+<header>
+  <mat-toolbar class="toolbar">
+
+      <mat-toolbar-row class="selected-source">
+          <h2>{{ title }}</h2>
+      </mat-toolbar-row>
+
+      <mat-toolbar-row class="toolbar-items">
+
+        <app-sources-selector class="sources-selector" (sourceNameChange)="recieveSourceName($event)">
+        </app-sources-selector>
+
+        <mat-form-field class="search">
+          <input matInput [(ngModel)]="searchTerm">
+          <i class="material-icons">search</i>
+          <mat-label>Search</mat-label>
+        </mat-form-field>
+
+        <nav class="add-article">
+          <button mat-raised-button color="primary" (click)="createArticle()" >Add article</button>
+        </nav>
+      </mat-toolbar-row>
+
+  </mat-toolbar>
+</header>
+
 <div class="news-container">
   <ul>
-    <li *ngFor="let article of articles | filter:searchTerm | filterSelector:source">
+    <li *ngFor="let article of articles | filter:searchTerm | filterSelector:title">
       <div class="article-data">
         <div>
           {{article.heading}}
@@ -10,6 +36,9 @@
         </div>
       </div>
       <div class="article-info">
+        <button>
+          <mat-icon color="grey">delete</mat-icon>
+        </button>
         <div class="article-source">
           {{ article.sourceName }}
         </div>

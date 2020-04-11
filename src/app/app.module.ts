@@ -9,7 +9,7 @@ import { ArticleComponent } from './articles/article/article.component';
 import { CreateArticleComponent } from './articles/create-article/create-article.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { NewsFeedComponent } from './articles/news-feed/news-feed.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
@@ -30,6 +30,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FilterSelectorPipe } from './filter-selector.pipe';
 import { SearchComponent } from './search/search.component';
+import { MatIconModule } from '@angular/material/icon';
 
 const appRoutes: Routes = [
   { path: 'add', component: CreateArticleComponent},
@@ -78,7 +79,10 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule
   ],
 
   providers: [ArticlesDataService, ],

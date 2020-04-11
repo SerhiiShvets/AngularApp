@@ -18,3 +18,44 @@ ul > li {
 .article-date {
     margin-left: auto;
 }
+
+header {
+
+}
+
+.toolbar {
+    background-color: #673ab7;
+    color: #fff;
+}
+
+mat-toolbar-row {
+    justify-content: space-between;
+}
+
+.selected-source {
+    justify-content: center;
+}
+
+app-sources-selector {
+    /* justify-content: flex-end; */
+    /* background-color: #673ab7; */
+}
+
+.search {
+    /* background-color: #673ab7; */
+}
+
+input {
+    background-color: #673ab7 !important;
+}
+
+.add-article {
+
+}
+
+button {
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+

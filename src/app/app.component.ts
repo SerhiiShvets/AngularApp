@@ -42,6 +42,13 @@ export class AppComponent {
     this.router.navigateByUrl('/add');
 }
 
+
+
+
+
+
+
+
   // @Output() searchChange = new EventEmitter<string>();
 
   // onSearchChange(){

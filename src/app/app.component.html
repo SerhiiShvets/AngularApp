@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
     <mat-toolbar class="toolbar">
 
         <mat-toolbar-row class="selected-source">
@@ -13,17 +13,20 @@
           <mat-form-field class="search">
             <input matInput [(ngModel)]="searchTerm">
             <i class="material-icons">search</i>
-            <!-- <mat-label>Search</mat-label> -->
+            <mat-label>Search</mat-label>
           </mat-form-field>
 
           <nav class="add-article">
             <button mat-raised-button color="primary" (click)="createArticle()" >Add article</button>
           </nav>
-          <!-- <a routerLink="add" routerLinkActive="active">Add</a> -->
         </mat-toolbar-row>
   
     </mat-toolbar>
-</header>
+</header> -->
+
+
+
+
 
 <!-- <app-toolbar [(searchTerm)]="search" (titleChange)="recieveSourceFilter($event)">
 </app-toolbar> -->
@@ -32,10 +35,13 @@
 <!-- <app-article>
 </app-article> -->
 
-<main>
+<!-- <main>
   <app-news-feed [(searchTerm)]="searchTerm" [(source)]="title">  
   </app-news-feed>
-</main>
+</main> -->
+
+<!-- <app-news-feed>  
+</app-news-feed> -->
 
 <router-outlet></router-outlet>
 

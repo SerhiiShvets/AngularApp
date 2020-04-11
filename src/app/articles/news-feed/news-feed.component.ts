@@ -1,14 +1,18 @@
-import { Component, OnInit, Input, ViewChild, Output } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
-import {MatPaginator} from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatIconRegistry} from '@angular/material/icon';
 import { ArticleComponent } from '../article/article.component';
 import { ArticlesDataService } from '../../shared/articles-data.service';
 import { CreateArticleComponent } from '../create-article/create-article.component';
 // import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { ToolbarComponent } from 'src/app/toolbar/toolbar.component';
+import { Router } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news-feed',
@@ -22,14 +26,14 @@ export class NewsFeedComponent implements OnInit {
 
   @Input() searchTerm: string;
   @Input() source: string;
-
   articles: any;
+
 
   ngOnInit() {
     this.getArticlesList();
   }
 
-  constructor(private articleService: ArticleService) { }
+  constructor(private articleService: ArticleService, private router: Router) { }
 
   getArticlesList() {
     this.articleService.getArticlesList().snapshotChanges().pipe(
@@ -43,8 +47,41 @@ export class NewsFeedComponent implements OnInit {
     });
   }
 
-  deleteCustomers() {
+  deleteArticles() {
     this.articleService.removeAll();
   }
+
+
+  // constructor(private router: Router) {}
+  search: string;
+  sourceFilter: string;
+
+  recieveSourceFilter($event) {
+    this.sourceFilter = $event;
+  }
+
+  // @Input() searchTerm = '';
+  title = 'All';
+
+  @Output() searchTermChange = new EventEmitter<string>();
+
+  onSearchTermChange(){
+    this.searchTermChange.emit(this.searchTerm);
+  }
+
+  recieveSourceName($event){
+    this.title = $event;
+    console.log(this.title);
+  }
+
+  @Output() titleChange = new EventEmitter<string>();
+
+  onTitleChange(){
+    this.titleChange.emit(this.title);
+  }
+
+  createArticle() {
+    this.router.navigateByUrl('/add');
+}
 
 }

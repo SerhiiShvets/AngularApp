@@ -12,26 +12,31 @@
         </mat-form-field>
     </div>
     <br>
-    <mat-form-field class="short-description">
-        <mat-label>Short description</mat-label>
-        <input matInput id="shortDescription" formControlName="shortDescription">
-    </mat-form-field>
-    <mat-form-field class="author">
-        <mat-label>Author</mat-label>
-        <input matInput id="author" formControlName="author">
-    </mat-form-field>
+    <div>
+        <mat-form-field class="short-description">
+            <mat-label>Short description</mat-label>
+            <input matInput id="shortDescription" formControlName="shortDescription">
+        </mat-form-field>
+        <mat-form-field class="author">
+            <mat-label>Author</mat-label>
+            <input matInput id="author" formControlName="author">
+        </mat-form-field>
+    </div>
+    <br>
+    <div>
+        <mat-form-field class="url">
+            <mat-label>URL</mat-label>
+            <input matInput id="sourceUrl" formControlName="sourceUrl">
+        </mat-form-field>
+        <mat-form-field class="source">
+            <mat-label>Source</mat-label>
+            <input matInput id="sourceName" formControlName="sourceName">
+        </mat-form-field>
+    </div>
     <br>
     <mat-form-field class="content">
         <mat-label>Content</mat-label>
         <textarea matInput id="content" formControlName="content"></textarea>
-    </mat-form-field>
-    <mat-form-field class="url">
-        <mat-label>URL</mat-label>
-        <input matInput id="sourceUrl" formControlName="sourceUrl">
-    </mat-form-field>
-    <mat-form-field class="source">
-        <mat-label>Source</mat-label>
-        <input matInput id="sourceName" formControlName="sourceName">
     </mat-form-field>
     <div class="buttons">
         <button mat-raised-button color="primary">Save</button>
