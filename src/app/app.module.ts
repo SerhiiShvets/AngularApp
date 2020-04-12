@@ -31,6 +31,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { FilterSelectorPipe } from './filter-selector.pipe';
 import { SearchComponent } from './search/search.component';
 import { MatIconModule } from '@angular/material/icon';
+import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 
 const appRoutes: Routes = [
   { path: 'add', component: CreateArticleComponent},
@@ -59,7 +60,8 @@ export const firebaseConfig = {
     SourcesSelectorComponent,
     FilterPipe,
     FilterSelectorPipe,
-    SearchComponent
+    SearchComponent,
+    ArticleDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -38,8 +38,8 @@ export class NewsFeedComponent implements OnInit {
   getArticlesList() {
     this.articleService.getArticlesList().snapshotChanges().pipe(
       map(changes =>
-        changes.map(c =>
-          ({ key: c.payload.doc.id, ...c.payload.doc.data() })
+        changes.map(a =>
+          ({ key: a.payload.doc.id, ...a.payload.doc.data() })
         )
       )
     ).subscribe(articles => {
@@ -82,6 +82,15 @@ export class NewsFeedComponent implements OnInit {
 
   createArticle() {
     this.router.navigateByUrl('/add');
-}
+  }
 
+  deleteArticle(article: Article) {
+    this.articleService
+      .removeArticle(article.key)
+      .catch(err => console.log(err));
+  }
+
+  onSelect(article: Article) {
+    this.router.navigate(['/articles', article.key]);
+  }
 }

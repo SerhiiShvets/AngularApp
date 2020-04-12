@@ -28,16 +28,20 @@
   <ul>
     <li *ngFor="let article of articles | filter:searchTerm | filterSelector:title">
       <div class="article-data">
+
         <div>
           {{article.heading}}
         </div>
         <div>
-          {{ article.content }}
+          {{ article.shortDescription }}
+        </div>
+        <div>
+          <a routerLink="{{ article.key }}" routerLinkActive="active">Reed more...</a>
         </div>
       </div>
       <div class="article-info">
-        <button>
-          <mat-icon color="grey">delete</mat-icon>
+        <button class="delete">
+          <mat-icon (click)="deleteArticle(article)">delete</mat-icon>
         </button>
         <div class="article-source">
           {{ article.sourceName }}

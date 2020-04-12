@@ -58,4 +58,10 @@ button {
     border: 1px solid #fff;
 }
 
+mat-icon {
+    color: #673ab7;
+}
 
+.delete {
+    background-color: #fff;
+}

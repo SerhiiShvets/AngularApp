@@ -1,4 +1,5 @@
 export class Article {
+    key: string;
     heading: string;
     date: string;
     author: string;
