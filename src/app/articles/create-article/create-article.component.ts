@@ -2,6 +2,7 @@ import { Component, OnInit, NgModule, Input } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ArticleComponent } from '../article/article.component';
 // import { ArticlesDataService } from '../../shared/articles-data.service';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
@@ -18,7 +19,7 @@ export class CreateArticleComponent implements OnInit {
 article: Article = new Article();
 articleForm: FormGroup;
 
-constructor(private articleService: ArticleService) { }
+constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
     // this.articles = this.ArticlesDataService.getData();
@@ -44,5 +45,10 @@ constructor(private articleService: ArticleService) { }
     // this.article.sourceName = this.articleForm.value.sourceName;
 
     this.articleService.addArticle(this.article);
+    this.onCancel();
+  }
+
+  onCancel() {
+    this.router.navigate(['/articles']);
   }
 }

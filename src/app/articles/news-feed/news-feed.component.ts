@@ -12,7 +12,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { map } from 'rxjs/operators';
 import { ToolbarComponent } from 'src/app/toolbar/toolbar.component';
 import { Router } from '@angular/router';
-import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news-feed',
@@ -51,8 +50,6 @@ export class NewsFeedComponent implements OnInit {
     this.articleService.removeAll();
   }
 
-
-  // constructor(private router: Router) {}
   search: string;
   sourceFilter: string;
 
@@ -88,9 +85,5 @@ export class NewsFeedComponent implements OnInit {
     this.articleService
       .removeArticle(article.key)
       .catch(err => console.log(err));
-  }
-
-  onSelect(article: Article) {
-    this.router.navigate(['/articles', article.key]);
   }
 }

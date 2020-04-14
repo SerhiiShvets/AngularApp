@@ -39,7 +39,7 @@
         <textarea matInput id="content" formControlName="content" [(ngModel)]="article.content"></textarea>
     </mat-form-field>
     <div class="buttons">
-        <button mat-raised-button color="primary">Save</button>
-        <button mat-raised-button color="primary">Cancel</button>     
+        <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+        <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>     
     </div>
 </form>

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Article } from '../article';
+import { ArticleService } from '../article.service';
+import { ActivatedRoute} from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-article-detail',
@@ -8,9 +11,17 @@ import { Article } from '../article';
 })
 export class ArticleDetailComponent implements OnInit {
 
-  constructor() { }
+  key: string;
+  private subscription: Subscription;
+  article: any;
 
-  ngOnInit(): void {
+  constructor(private activateRoute: ActivatedRoute, private articleService: ArticleService){
+      this.subscription = activateRoute.params.subscribe(params => this.key = params['key']);
   }
 
+  ngOnInit() {
+    this.articleService.articlesRef.doc(this.key).ref.get().then(doc => {
+      this.article = doc.data();
+    });
+  }
 }

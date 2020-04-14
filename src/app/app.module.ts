@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -33,11 +32,6 @@ import { SearchComponent } from './search/search.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 
-const appRoutes: Routes = [
-  { path: 'add', component: CreateArticleComponent},
-  { path: 'articles', component: NewsFeedComponent},
-];
-
 export const firebaseConfig = {
   apiKey: 'AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw',
   authDomain: 'my-angular-app-ca09d.firebaseapp.com',
@@ -47,8 +41,6 @@ export const firebaseConfig = {
   messagingSenderId: '848590614299',
   appId: '1:848590614299:web:ae92c46f51be687001edbe'
 };
-
-// storageBucket: 'my-angular-app-ca09d.appspot.com',
 
 @NgModule({
   declarations: [
@@ -77,7 +69,6 @@ export const firebaseConfig = {
     MatNativeDateModule,
     AngularFireModule,
     AngularFireDatabaseModule,
-    RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
     AngularFirestoreModule,
