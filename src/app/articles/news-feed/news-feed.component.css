@@ -13,6 +13,7 @@ ul > li {
 .article-info {
     min-width: 130px;
     padding-left: 30px;
+    margin-left: auto;
 }
 
 .article-date {
