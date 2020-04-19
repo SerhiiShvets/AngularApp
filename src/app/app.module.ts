@@ -31,6 +31,7 @@ import { FilterSelectorPipe } from './filter-selector.pipe';
 import { SearchComponent } from './search/search.component';
 import { MatIconModule } from '@angular/material/icon';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
+import { UpdateArticleComponent } from './articles/update-article/update-article.component';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw',
@@ -53,7 +54,8 @@ export const firebaseConfig = {
     FilterPipe,
     FilterSelectorPipe,
     SearchComponent,
-    ArticleDetailComponent
+    ArticleDetailComponent,
+    UpdateArticleComponent
   ],
   imports: [
     BrowserModule,

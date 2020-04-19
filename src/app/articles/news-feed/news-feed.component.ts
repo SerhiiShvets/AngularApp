@@ -66,19 +66,23 @@ export class NewsFeedComponent implements OnInit {
     this.searchTermChange.emit(this.searchTerm);
   }
 
-  recieveSourceName($event){
+  recieveSourceName($event) {
     this.title = $event;
     console.log(this.title);
   }
 
   @Output() titleChange = new EventEmitter<string>();
 
-  onTitleChange(){
+  onTitleChange() {
     this.titleChange.emit(this.title);
   }
 
   createArticle() {
     this.router.navigateByUrl('/add');
+  }
+
+  updateArticle(article: Article) {
+    this.router.navigateByUrl('/articles/update/' + article.key);
   }
 
   deleteArticle(article: Article) {

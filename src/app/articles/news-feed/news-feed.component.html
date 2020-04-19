@@ -41,9 +41,14 @@
         </div>
       </div>
       <div class="article-info">
+        <button class="update">
+          <mat-icon (click)="updateArticle(article)">create</mat-icon>
+        </button>
+
         <button class="delete">
           <mat-icon (click)="deleteArticle(article)">delete</mat-icon>
         </button>
+
         <div class="article-source">
           {{ article.sourceName }}
         </div>

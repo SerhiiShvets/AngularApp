@@ -15,8 +15,8 @@ export class ArticleDetailComponent implements OnInit {
   private subscription: Subscription;
   article: any;
 
-  constructor(private activateRoute: ActivatedRoute, private articleService: ArticleService){
-      this.subscription = activateRoute.params.subscribe(params => this.key = params['key']);
+  constructor(private activatedRoute: ActivatedRoute, private articleService: ArticleService) {
+      this.subscription = activatedRoute.params.subscribe(params => this.key = params.key);
   }
 
   ngOnInit() {

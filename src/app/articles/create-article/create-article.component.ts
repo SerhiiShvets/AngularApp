@@ -1,13 +1,8 @@
-import { Component, OnInit, NgModule, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ArticleComponent } from '../article/article.component';
-// import { ArticlesDataService } from '../../shared/articles-data.service';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
-import { map } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-create-article',
@@ -16,14 +11,12 @@ import { Observable } from 'rxjs';
 })
 export class CreateArticleComponent implements OnInit {
 
-article: Article = new Article();
-articleForm: FormGroup;
+  article: Article = new Article();
+  articleForm: FormGroup;
 
-constructor(private articleService: ArticleService, private router: Router) { }
+  constructor(private articleService: ArticleService, private router: Router) { }
 
   ngOnInit() {
-    // this.articles = this.ArticlesDataService.getData();
-
     this.articleForm = new FormGroup({
       heading: new FormControl(),
       date: new FormControl(),

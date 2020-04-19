@@ -32,12 +32,12 @@ export class ArticleService {
   getArticleByKey(key: string) {
     this.articlesRef.doc(key).ref.get().then(doc => {
       if (doc.exists) {
-        console.log("Document data:", doc.data());
+        console.log('Document data:', doc.data());
       } else {
-        console.log("No such document!");
+        console.log('No such document!');
       }
-    }).catch(function(error) {
-      console.log("Error getting document:", error);
+    }).catch((error) => {
+      console.log('Error getting document:', error);
     });
   }
 
