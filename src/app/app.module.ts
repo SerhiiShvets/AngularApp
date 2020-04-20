@@ -11,6 +11,7 @@ import { NewsFeedComponent } from './articles/news-feed/news-feed.component';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -77,7 +78,8 @@ export const firebaseConfig = {
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule
   ],
 
   providers: [ArticlesDataService, ],

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatIconRegistry} from '@angular/material/icon';
 import { ArticleComponent } from '../article/article.component';
@@ -90,4 +90,18 @@ export class NewsFeedComponent implements OnInit {
       .removeArticle(article.key)
       .catch(err => console.log(err));
   }
+
+    // MatPaginator Inputs
+    length = 100;
+    pageSize = 10;
+    pageSizeOptions: number[] = [5, 10, 25, 100];
+  
+    // MatPaginator Output
+    pageEvent: PageEvent;
+  
+    setPageSizeOptions(setPageSizeOptionsInput: string) {
+      if (setPageSizeOptionsInput) {
+        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+      }
+    }
 }
