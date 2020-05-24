@@ -1,13 +1,6 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Article } from '../article';
 import { ArticleService } from '../article.service';
-import { MatPaginator, PageEvent } from '@angular/material/paginator';
-import {MatTableDataSource} from '@angular/material/table';
-import {MatIconRegistry} from '@angular/material/icon';
-import { ArticleComponent } from '../article/article.component';
-import { ArticlesDataService } from '../../shared/articles-data.service';
-import { CreateArticleComponent } from '../create-article/create-article.component';
-// import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { ToolbarComponent } from 'src/app/toolbar/toolbar.component';
@@ -21,46 +14,96 @@ import { Router } from '@angular/router';
 
 export class NewsFeedComponent implements OnInit {
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-
   @Input() searchTerm: string;
   @Input() source: string;
-  articles: any;
+  articles: any[];
+
+  title = 'All';
+  @Output() searchTermChange = new EventEmitter<string>();
+  @Output() titleChange = new EventEmitter<string>();
+
+  search: string;
+  sourceFilter: string;
+
+  firstInResponse: any;
+  lastInResponse: any;
+
+  previousStartAt: any[];
+  paginationClickedCount: number;
+  disableNext: boolean;
+  disablePrevious: boolean;
 
 
   ngOnInit() {
-    this.getArticlesList();
+    this.loadItems();
   }
 
   constructor(private articleService: ArticleService, private router: Router) { }
 
-  getArticlesList() {
-    this.articleService.getArticlesList().snapshotChanges().pipe(
-      map(changes =>
-        changes.map(a =>
-          ({ key: a.payload.doc.id, ...a.payload.doc.data() })
-        )
-      )
-    ).subscribe(articles => {
-      this.articles = articles;
+  loadItems() {
+    this.articleService.articlesCollection
+      .snapshotChanges()
+      .subscribe(response => {
+        if (!response.length) {
+          console.log('No Data Available');
+          return false;
+        }
+        this.firstInResponse = response[0].payload.doc;
+        this.lastInResponse = response[response.length - 1].payload.doc;
+
+        this.articles = [];
+        for (const article of response) {
+          this.articles.push({ key: article.payload.doc.id, ...article.payload.doc.data() });
+        }
+
+        // Initialize values
+        this.previousStartAt = [];
+        this.paginationClickedCount = 0;
+        this.disableNext = false;
+        this.disablePrevious = false;
+
+        // Push first item to use for Previous action
+        this.pushPreviousStartAt(this.firstInResponse);
+      }, error => {
+        console.log(error);
+      });
+  }
+
+  // Add document
+  pushPreviousStartAt(previousFirstDoc) {
+    this.previousStartAt.push(previousFirstDoc);
+  }
+
+  // Remove not required document
+  popPreviousStartAt(previousFirstDoc) {
+    this.previousStartAt.forEach(element => {
+      if (previousFirstDoc.data().id === element.data().id) {
+        element = null;
+      }
     });
+  }
+
+  // Return the Doc rem where previous page will startAt
+  getPreviousStartAt() {
+    if (this.previousStartAt.length > (this.paginationClickedCount + 1)) {
+      this.previousStartAt.splice(this.previousStartAt.length - 2, this.previousStartAt.length - 1);
+    }
+    return this.previousStartAt[this.paginationClickedCount - 1];
+  }
+
+  // Date formate
+  readableDate(time) {
+    const d = new Date(time);
+    return d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
   }
 
   deleteArticles() {
     this.articleService.removeAll();
   }
 
-  search: string;
-  sourceFilter: string;
-
   recieveSourceFilter($event) {
     this.sourceFilter = $event;
   }
-
-  // @Input() searchTerm = '';
-  title = 'All';
-
-  @Output() searchTermChange = new EventEmitter<string>();
 
   onSearchTermChange(){
     this.searchTermChange.emit(this.searchTerm);
@@ -70,8 +113,6 @@ export class NewsFeedComponent implements OnInit {
     this.title = $event;
     console.log(this.title);
   }
-
-  @Output() titleChange = new EventEmitter<string>();
 
   onTitleChange() {
     this.titleChange.emit(this.title);
@@ -86,22 +127,79 @@ export class NewsFeedComponent implements OnInit {
   }
 
   deleteArticle(article: Article) {
+    if (article.key === this.lastInResponse.key) {
+      this.articleService.getNextArticle(this.lastInResponse)
+        .get()
+        .subscribe(response => {
+          this.lastInResponse = response.docs[0];
+        }, error => {
+          console.log(error);
+        });
+    }
     this.articleService
       .removeArticle(article.key)
-      .catch(err => console.log(err));
+      .catch(error => console.log(error));
   }
 
-    // MatPaginator Inputs
-    length = 100;
-    pageSize = 10;
-    pageSizeOptions: number[] = [5, 10, 25, 100];
-  
-    // MatPaginator Output
-    pageEvent: PageEvent;
-  
-    setPageSizeOptions(setPageSizeOptionsInput: string) {
-      if (setPageSizeOptionsInput) {
-        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-      }
-    }
+  previousPage() {
+    this.articleService.getArticlesListPrevious(this.getPreviousStartAt(), this.firstInResponse)
+      .snapshotChanges()
+      .subscribe(response => {
+        this.firstInResponse = response[0].payload.doc;
+        this.lastInResponse = response[response.length - 1].payload.doc;
+
+        this.articles = [];
+        // tslint:disable-next-line: prefer-for-of
+        // for (let i = 0; i < response.docs.length; i++ ) {
+        //   this.articles.push(response.docs[i]);
+        // }
+        for (const article of response) {
+          this.articles.push({ key: article.payload.doc.id, ...article.payload.doc.data() });
+        }
+
+        // Maintaing page no.
+        this.paginationClickedCount--;
+
+        // Pop not required value in array
+        this.popPreviousStartAt(this.firstInResponse);
+
+        // Enable buttons again
+        this.disablePrevious = false;
+        this.disableNext = false;
+      }, error => {
+        this.disablePrevious = false;
+      });
+  }
+
+  nextPage() {
+    this.disableNext = true;
+    this.articleService.getArticlesListNext(this.lastInResponse)
+      .snapshotChanges()
+      .subscribe(response => {
+        if (!response.length) {
+          this.disableNext = true;
+          return;
+        }
+
+        this.firstInResponse = response[0].payload.doc;
+        this.lastInResponse = response[response.length - 1].payload.doc;
+
+        this.articles = [];
+        // tslint:disable-next-line: prefer-for-of
+        // for (let i = 0; i < response.docs.length; i++ ) {
+        //   this.articles.push(response.docs[i]);
+        // }
+        for (const article of response) {
+          this.articles.push({ key: article.payload.doc.id, ...article.payload.doc.data() });
+        }
+
+        this.paginationClickedCount++;
+
+        this.pushPreviousStartAt(this.firstInResponse);
+
+        this.disableNext = false;
+      }, error => {
+        this.disableNext = false;
+      });
+  }
 }

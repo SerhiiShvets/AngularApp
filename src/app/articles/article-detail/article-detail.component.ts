@@ -20,7 +20,7 @@ export class ArticleDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.articleService.articlesRef.doc(this.key).ref.get().then(doc => {
+    this.articleService.articlesCollection.doc(this.key).ref.get().then(doc => {
       this.article = doc.data();
     });
   }

@@ -20,10 +20,6 @@ ul > li {
     margin-left: auto;
 }
 
-header {
-
-}
-
 .toolbar {
     background-color: #673ab7;
     color: #fff;
@@ -37,21 +33,8 @@ mat-toolbar-row {
     justify-content: center;
 }
 
-app-sources-selector {
-    /* justify-content: flex-end; */
-    /* background-color: #673ab7; */
-}
-
-.search {
-    /* background-color: #673ab7; */
-}
-
 input {
     background-color: #673ab7 !important;
-}
-
-.add-article {
-
 }
 
 button {

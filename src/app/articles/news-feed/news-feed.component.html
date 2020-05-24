@@ -58,10 +58,8 @@
       </div>
     </li>
   </ul>
+  <div class="buttons">
+    <button mat-raised-button color="primary" (click)="previousPage()">Previous</button>
+    <button mat-raised-button color="primary" (click)="nextPage()">Next</button>     
 </div>
-
-<mat-paginator [length]="length"
-[pageSize]="pageSize"
-[pageSizeOptions]="pageSizeOptions"
-(page)="pageEvent = $event">
-</mat-paginator>
+</div>

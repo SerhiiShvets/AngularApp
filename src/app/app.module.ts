@@ -34,15 +34,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { UpdateArticleComponent } from './articles/update-article/update-article.component';
 
-export const firebaseConfig = {
-  apiKey: 'AIzaSyB5YCqOdDYx_Y6_87JIVOfkLh4JKT4kWzw',
-  authDomain: 'my-angular-app-ca09d.firebaseapp.com',
-  databaseURL: 'https://my-angular-app-ca09d.firebaseio.com',
-  projectId: 'my-angular-app-ca09d',
-  storageBucket: 'my-angular-app-ca09d.appspot.com',
-  messagingSenderId: '848590614299',
-  appId: '1:848590614299:web:ae92c46f51be687001edbe'
-};
 
 @NgModule({
   declarations: [

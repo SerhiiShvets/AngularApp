@@ -1,6 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { StringifyOptions } from 'querystring';
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-toolbar',
@@ -8,30 +6,25 @@ import { StringifyOptions } from 'querystring';
   styleUrls: ['./toolbar.component.css']
 })
 
-export class ToolbarComponent implements OnInit {
+export class ToolbarComponent {
+
+  @Input() searchTerm = '';
+  @Output() searchTermChange = new EventEmitter<string>();
+  @Output() titleChange = new EventEmitter<string>();
+  title = 'All';
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  @Input() searchTerm = '';
-  title = 'All';
-
-  @Output() searchTermChange = new EventEmitter<string>();
-
-  onSearchTermChange(){
+  onSearchTermChange() {
     this.searchTermChange.emit(this.searchTerm);
   }
 
-  recieveSourceName($event){
+  recieveSourceName($event) {
     this.title = $event;
     console.log(this.title);
   }
 
-  @Output() titleChange = new EventEmitter<string>();
-
-  onTitleChange(){
+  onTitleChange() {
     this.titleChange.emit(this.title);
   }
 
