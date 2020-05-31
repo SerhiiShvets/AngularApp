@@ -4,6 +4,7 @@ import { ArticleService } from '../article.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Source } from '../source';
 
 @Component({
   selector: 'app-update-article',
@@ -11,6 +12,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./update-article.component.css']
 })
 export class UpdateArticleComponent implements OnInit {
+
+  sources: Source[] = [
+    {id: '0-r', name: 'Reuters'},
+    {id: '1-afp', name: 'Agence France-Presse'},
+    {id: '2-ap', name: 'Associated Press'}
+  ];
 
   key: string;
   private subscription: Subscription;

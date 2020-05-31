@@ -1,11 +1,11 @@
 .article-container {
     display: flex;
     justify-content: center;
+    padding: 30px;
 }
 
 .article-card {
     max-width: 600px;
-
 }
 
 .mat-card-image {

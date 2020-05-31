@@ -1,45 +1,65 @@
-<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
-    <div>
-        <mat-form-field class="heading">
-            <mat-label>Enter a heading</mat-label>
-            <input matInput name="heading" formControlName="heading" [(ngModel)]="article.heading">
-        </mat-form-field>
-        <mat-form-field class="date">
-            <mat-label>Pick a date</mat-label>
-            <input matInput [matDatepicker]="picker" id="date" formControlName="date" [(ngModel)]="article.date">
-            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-    </div>
-    <br>
-    <div>
-        <mat-form-field class="short-description">
-            <mat-label>Short description</mat-label>
-            <input matInput id="shortDescription" formControlName="shortDescription" [(ngModel)]="article.shortDescription">
-        </mat-form-field>
-        <mat-form-field class="author">
-            <mat-label>Author</mat-label>
-            <input matInput id="author" formControlName="author" [(ngModel)]="article.author">
-        </mat-form-field>
-    </div>
-    <br>
-    <div>
-        <mat-form-field class="url">
-            <mat-label>URL</mat-label>
-            <input matInput id="sourceUrl" formControlName="sourceUrl" [(ngModel)]="article.sourceUrl">
-        </mat-form-field>
-        <mat-form-field class="source">
-            <mat-label>Source</mat-label>
-            <input matInput id="sourceName" formControlName="sourceName" [(ngModel)]="article.sourceName">
-        </mat-form-field>
-    </div>
-    <br>
-    <mat-form-field class="content">
-        <mat-label>Content</mat-label>
-        <textarea matInput id="content" formControlName="content" [(ngModel)]="article.content"></textarea>
-    </mat-form-field>
-    <div class="buttons">
-        <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
-        <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>     
-    </div>
-</form>
+<header>
+    <mat-toolbar class="toolbar">
+        <mat-toolbar-row class="toolbar-text">
+            <h2>Update article</h2>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</header>
+<div class="update-article-container">
+    <mat-card>
+        <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+            <div>
+                <mat-form-field class="heading">
+                    <mat-label>Enter a heading</mat-label>
+                    <input matInput name="heading" formControlName="heading" [(ngModel)]="article.heading">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="date">
+                    <mat-label>Pick a date</mat-label>
+                    <input matInput [matDatepicker]="picker" id="date" formControlName="date" [(ngModel)]="article.date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="short-description">
+                    <mat-label>Short description</mat-label>
+                    <input matInput id="shortDescription" formControlName="shortDescription" [(ngModel)]="article.shortDescription">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="author">
+                    <mat-label>Author</mat-label>
+                    <input matInput id="author" formControlName="author" [(ngModel)]="article.author">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="url">
+                    <mat-label>URL</mat-label>
+                    <input matInput id="sourceUrl" formControlName="sourceUrl" [(ngModel)]="article.sourceUrl">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="source">
+                    <mat-label>Select source</mat-label>
+                    <mat-select id="sourceName" value="article.sourceName" formControlName="sourceName" [(ngModel)]="article.sourceName">
+                        <mat-option *ngFor="let source of sources" [(value)]="source.name">
+                        {{ source.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="content">
+                    <mat-label>Content</mat-label>
+                    <textarea matInput id="content" formControlName="content" [(ngModel)]="article.content"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="buttons">
+                <button mat-raised-button color="primary" (click)="onSubmit()">Save</button>
+                <button mat-raised-button color="primary" (click)="onCancel()">Cancel</button>     
+            </div>
+        </form>
+    </mat-card>
+</div>

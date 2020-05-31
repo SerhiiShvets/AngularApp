@@ -1,0 +1,32 @@
+.toolbar {
+    background-color: #673ab7;
+    color: #fff;
+}
+
+.toolbar-text {
+    justify-content: center;
+}
+
+.update-article-container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.mat-card {
+    /* flex-direction: column; */
+    min-width: 800px;
+}
+
+.form {
+    width: 100%;
+}
+
+.mat-form-field {
+    width: calc(100% - 50px);
+    padding: 30px;
+}
+
+.mat-raised-button {
+    margin: 10px;
+}

@@ -3,6 +3,7 @@ import { Article } from '../article';
 import { ArticleService } from '../article.service';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Source } from '../source';
 
 @Component({
   selector: 'app-create-article',
@@ -13,6 +14,12 @@ export class CreateArticleComponent implements OnInit {
 
   article: Article = new Article();
   articleForm: FormGroup;
+
+  sources: Source[] = [
+    {id: '0-r', name: 'Reuters'},
+    {id: '1-afp', name: 'Agence France-Presse'},
+    {id: '2-ap', name: 'Associated Press'}
+  ];
 
   constructor(private articleService: ArticleService, private router: Router) { }
 
