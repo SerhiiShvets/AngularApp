@@ -1,0 +1,15 @@
+.article-container {
+    display: flex;
+    justify-content: center;
+}
+
+.article-card {
+    max-width: 600px;
+
+}
+
+.mat-card-image {
+    max-width: 500%;
+    max-height: 50%;
+}
+  

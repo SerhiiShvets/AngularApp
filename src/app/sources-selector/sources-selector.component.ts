@@ -21,15 +21,14 @@ export class SourcesSelectorComponent implements OnInit {
   ];
 
   selected = 'All';
-  
+
   @Output() sourceNameChange = new EventEmitter<string>();
 
-  onSourceNameChange(){
+  onSourceNameChange() {
     this.sourceNameChange.emit(this.selected);
   }
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 }

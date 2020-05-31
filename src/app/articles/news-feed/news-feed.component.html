@@ -25,10 +25,13 @@
 </header>
 
 <div class="news-container">
+  <mat-card>
   <ul>
     <li *ngFor="let article of articles | filter:searchTerm | filterSelector:title">
+      <mat-card-header>
+        <img mat-card-avatar src="{{ article.sourceUrl }}" class="header-image">
+      </mat-card-header>
       <div class="article-data">
-
         <div>
           {{article.heading}}
         </div>
@@ -62,4 +65,5 @@
     <button mat-raised-button color="primary" (click)="previousPage()">Previous</button>
     <button mat-raised-button color="primary" (click)="nextPage()">Next</button>     
 </div>
+</mat-card>
 </div>

@@ -49,3 +49,12 @@ mat-icon {
 .delete, .update {
     background-color: #fff;
 }
+
+.header-image {
+    background-size: cover;
+}
+
+.mat-card-avatar {
+    height: 70px;
+    width: 70px;
+}
